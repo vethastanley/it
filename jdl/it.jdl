@@ -1,0 +1,30 @@
+entity Request {
+    id UUID required,
+    applicationID UUID required,
+    name String required,
+    doj LocalDate required,
+    role String required,
+    team String required,
+    manager String required,
+    org String required
+    status Status
+}
+
+enum Status {
+    ONBOARDING_INITIATED,
+    ONBOARDING_INPROGRESS,
+    ONBOARDED
+}
+
+entity App {
+    id UUID required,
+    name String required,
+    assignee String required,
+}
+
+relationship OneToMany {
+    Request{app} to App{request(id) required}
+}
+
+service Request with serviceClass
+paginate Request with pagination
