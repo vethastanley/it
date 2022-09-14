@@ -65,7 +65,7 @@ public class ITResource {
         Set<App> list = new HashSet<>();
         for (App app : request.getApps()) {
             app.setRequest(result);
-            App aftersave = appResource.updateApp(app.getId(), app).getBody();
+            App aftersave = appResource.createApp(app).getBody();
             list.add(aftersave);
         }
         requestLite.setApps(list);

@@ -51,9 +51,6 @@ public class AppResource {
     @PostMapping("/apps")
     public ResponseEntity<App> createApp(@Valid @RequestBody App app) throws URISyntaxException {
         log.debug("REST request to save App : {}", app);
-        if (app.getId() != null) {
-            throw new BadRequestAlertException("A new app cannot already have an ID", ENTITY_NAME, "idexists");
-        }
         App result = appRepository.save(app);
         return ResponseEntity
             .created(new URI("/api/apps/" + result.getId()))
