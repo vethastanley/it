@@ -59,9 +59,6 @@ public class RequestResource {
     @PostMapping("/requests")
     public ResponseEntity<Request> createRequest(@Valid @RequestBody Request request) throws URISyntaxException {
         log.debug("REST request to save Request : {}", request);
-        if (request.getId() != null) {
-            throw new BadRequestAlertException("A new request cannot already have an ID", ENTITY_NAME, "idexists");
-        }
         Request result = requestService.save(request);
         return ResponseEntity
             .created(new URI("/api/requests/" + result.getId()))

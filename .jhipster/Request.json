@@ -22,7 +22,7 @@
     },
     {
       "fieldName": "doj",
-      "fieldType": "LocalDate",
+      "fieldType": "Long",
       "fieldValidateRules": ["required"]
     },
     {

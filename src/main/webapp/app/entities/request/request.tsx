@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button, Table } from 'reactstrap';
-import { Translate, TextFormat, getSortState, JhiPagination, JhiItemCount } from 'react-jhipster';
+import { Translate, getSortState, JhiPagination, JhiItemCount } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
@@ -140,7 +140,7 @@ export const Request = () => {
                   </td>
                   <td>{request.applicationID}</td>
                   <td>{request.name}</td>
-                  <td>{request.doj ? <TextFormat type="date" value={request.doj} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
+                  <td>{request.doj}</td>
                   <td>{request.role}</td>
                   <td>{request.team}</td>
                   <td>{request.manager}</td>

@@ -3,7 +3,6 @@ package com.softwareag.it.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.softwareag.it.domain.enumeration.Status;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -26,7 +25,7 @@ public class Request implements Serializable {
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false)
-    private UUID id;
+    private UUID id = UUID.randomUUID();
 
     @NotNull
     @Column(name = "application_id", nullable = false)
@@ -38,7 +37,7 @@ public class Request implements Serializable {
 
     @NotNull
     @Column(name = "doj", nullable = false)
-    private LocalDate doj;
+    private Long doj;
 
     @NotNull
     @Column(name = "role", nullable = false)
@@ -106,16 +105,16 @@ public class Request implements Serializable {
         this.name = name;
     }
 
-    public LocalDate getDoj() {
+    public Long getDoj() {
         return this.doj;
     }
 
-    public Request doj(LocalDate doj) {
+    public Request doj(Long doj) {
         this.setDoj(doj);
         return this;
     }
 
-    public void setDoj(LocalDate doj) {
+    public void setDoj(Long doj) {
         this.doj = doj;
     }
 
@@ -241,7 +240,7 @@ public class Request implements Serializable {
             "id=" + getId() +
             ", applicationID='" + getApplicationID() + "'" +
             ", name='" + getName() + "'" +
-            ", doj='" + getDoj() + "'" +
+            ", doj=" + getDoj() +
             ", role='" + getRole() + "'" +
             ", team='" + getTeam() + "'" +
             ", manager='" + getManager() + "'" +

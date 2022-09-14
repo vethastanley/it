@@ -106,9 +106,10 @@ export const RequestUpdate = () => {
                 id="request-doj"
                 name="doj"
                 data-cy="doj"
-                type="date"
+                type="text"
                 validate={{
                   required: { value: true, message: 'This field is required.' },
+                  validate: v => isNumber(v) || 'This field should be a number.',
                 }}
               />
               <ValidatedField

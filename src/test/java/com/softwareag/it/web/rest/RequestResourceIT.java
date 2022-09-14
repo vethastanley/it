@@ -9,8 +9,6 @@ import com.softwareag.it.IntegrationTest;
 import com.softwareag.it.domain.Request;
 import com.softwareag.it.domain.enumeration.Status;
 import com.softwareag.it.repository.RequestRepository;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.UUID;
 import javax.persistence.EntityManager;
@@ -37,8 +35,8 @@ class RequestResourceIT {
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
     private static final String UPDATED_NAME = "BBBBBBBBBB";
 
-    private static final LocalDate DEFAULT_DOJ = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_DOJ = LocalDate.now(ZoneId.systemDefault());
+    private static final Long DEFAULT_DOJ = 1L;
+    private static final Long UPDATED_DOJ = 2L;
 
     private static final String DEFAULT_ROLE = "AAAAAAAAAA";
     private static final String UPDATED_ROLE = "BBBBBBBBBB";
@@ -286,7 +284,7 @@ class RequestResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(request.getId().toString())))
             .andExpect(jsonPath("$.[*].applicationID").value(hasItem(DEFAULT_APPLICATION_ID.toString())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
-            .andExpect(jsonPath("$.[*].doj").value(hasItem(DEFAULT_DOJ.toString())))
+            .andExpect(jsonPath("$.[*].doj").value(hasItem(DEFAULT_DOJ.intValue())))
             .andExpect(jsonPath("$.[*].role").value(hasItem(DEFAULT_ROLE)))
             .andExpect(jsonPath("$.[*].team").value(hasItem(DEFAULT_TEAM)))
             .andExpect(jsonPath("$.[*].manager").value(hasItem(DEFAULT_MANAGER)))
@@ -308,7 +306,7 @@ class RequestResourceIT {
             .andExpect(jsonPath("$.id").value(request.getId().toString()))
             .andExpect(jsonPath("$.applicationID").value(DEFAULT_APPLICATION_ID.toString()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
-            .andExpect(jsonPath("$.doj").value(DEFAULT_DOJ.toString()))
+            .andExpect(jsonPath("$.doj").value(DEFAULT_DOJ.intValue()))
             .andExpect(jsonPath("$.role").value(DEFAULT_ROLE))
             .andExpect(jsonPath("$.team").value(DEFAULT_TEAM))
             .andExpect(jsonPath("$.manager").value(DEFAULT_MANAGER))

@@ -2,7 +2,7 @@ entity Request {
     id UUID required,
     applicationID UUID required,
     name String required,
-    doj LocalDate required,
+    doj Long required,
     role String required,
     team String required,
     manager String required,

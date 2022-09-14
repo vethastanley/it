@@ -22,7 +22,7 @@ public class App implements Serializable {
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false)
-    private UUID id;
+    private UUID id = UUID.randomUUID();
 
     @NotNull
     @Column(name = "name", nullable = false)
