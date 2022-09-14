@@ -35,10 +35,10 @@ public class ITResource {
     }
 
     @PostMapping("/request")
-    public ResponseEntity<UUID> onBoardApplications(@Valid @RequestBody Request request) throws URISyntaxException {
+    public ResponseEntity<Request> onBoardApplications(@RequestBody Request request) throws URISyntaxException {
         log.debug("REST request to save new Request : {}", request);
         Request result = requestService.save(request);
-        return ResponseEntity.ok(result.getId());
+        return ResponseEntity.ok(result);
     }
 
     @PostMapping("/{requestId}/status/{status}")
@@ -55,7 +55,7 @@ public class ITResource {
     @PostMapping("/{requestId}/onboard")
     public ResponseEntity<RequestLite> createRequest(
         @PathVariable(value = "requestId", required = false) final UUID requestId,
-        @Valid @RequestBody RequestLite request
+        @RequestBody RequestLite request
     ) throws URISyntaxException {
         log.debug("REST create request for creating applications{}", requestId);
         Request result = requestService.findOne(requestId).get();
