@@ -5,7 +5,7 @@ import { NavLink as Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const BrandIcon = props => (
-  <div {...props} className="brand-icon">
+  <div {...props} className="brand-icon marginRight">
     <img src="content/images/logo-jhipster.png" alt="Logo" />
   </div>
 );
