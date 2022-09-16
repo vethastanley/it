@@ -59,7 +59,13 @@ export const RequestDetail = () => {
           <dt>
             <span id="status">Status</span>
           </dt>
-          <dd>{requestEntity.status}</dd>
+          <dd>
+            {requestEntity.status == 'ONBOARDED' ? (
+              <Button color="success">{requestEntity.status}</Button>
+            ) : (
+              <Button color="info">{requestEntity.status}</Button>
+            )}
+          </dd>
         </dl>
         <Button tag={Link} to="/request" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

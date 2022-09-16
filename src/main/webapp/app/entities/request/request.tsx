@@ -137,7 +137,13 @@ export const Request = () => {
                   <td>{request.team}</td>
                   <td>{request.manager}</td>
                   <td>{request.org}</td>
-                  <td>{request.status}</td>
+                  <td>
+                    {request.status == 'ONBOARDED' ? (
+                      <Button color="success">{request.status}</Button>
+                    ) : (
+                      <Button color="info">{request.status}</Button>
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>
