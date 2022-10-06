@@ -72,20 +72,23 @@ const LoginModal = (props: ILoginModalProps) => {
             </Col>
           </Row>
           <div className="mt-1">&nbsp;</div>
-          <Alert color="warning">
-            <Link to="/account/reset/request" data-cy="forgetYourPasswordSelector">
+          <Alert className="logincolor">
+            <Link to="/account/reset/request" data-cy="forgetYourPasswordSelector" style={{ color: 'white' }}>
               Did you forget your password?
             </Link>
           </Alert>
-          <Alert color="warning">
-            <span>You don&apos;t have an account yet?</span> <Link to="/account/register">Register a new account</Link>
+          <Alert className="logincolor">
+            <span>You don&apos;t have an account yet?</span>{' '}
+            <Link to="/account/register" style={{ color: 'white' }}>
+              Register a new account
+            </Link>
           </Alert>
         </ModalBody>
         <ModalFooter>
           <Button color="secondary" onClick={handleClose} tabIndex={1}>
             Cancel
           </Button>{' '}
-          <Button color="primary" type="submit" data-cy="submit">
+          <Button style={{ backgroundColor: '#2b4049', borderColor: '#2b4049', color: 'white' }} type="submit" data-cy="submit">
             Sign in
           </Button>
         </ModalFooter>

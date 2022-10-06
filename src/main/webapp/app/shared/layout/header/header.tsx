@@ -26,8 +26,8 @@ const Header = (props: IHeaderProps) => {
   return (
     <div id="app-header">
       <LoadingBar className="loading-bar" />
-      <Navbar data-cy="navbar" dark expand="md" fixed="top" className="bg-primary">
-        <NavbarToggler aria-label="Menu" onClick={toggleMenu} />
+      <Navbar data-cy="navbar" dark expand="md" fixed="top" style={{ backgroundColor: '#2b4049' }}>
+        <NavbarToggler aria-label="Menu" onClick={toggleMenu} style={{ backgroundColor: '#2b4049' }} />
         <Brand />
         <Collapse isOpen={menuOpen} navbar>
           <Nav id="header-tabs" className="ms-auto" navbar>
