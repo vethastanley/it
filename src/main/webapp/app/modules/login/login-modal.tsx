@@ -72,12 +72,12 @@ const LoginModal = (props: ILoginModalProps) => {
             </Col>
           </Row>
           <div className="mt-1">&nbsp;</div>
-          <Alert className="logincolor">
+          <Alert style={{ background: '#2b4049', borderColor: '#2b4049' }}>
             <Link to="/account/reset/request" data-cy="forgetYourPasswordSelector" style={{ color: 'white' }}>
               Did you forget your password?
             </Link>
           </Alert>
-          <Alert className="logincolor">
+          <Alert style={{ background: '#2b4049', borderColor: '#2b4049' }}>
             <span>You don&apos;t have an account yet?</span>{' '}
             <Link to="/account/register" style={{ color: 'white' }}>
               Register a new account
