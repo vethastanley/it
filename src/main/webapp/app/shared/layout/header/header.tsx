@@ -24,12 +24,12 @@ const Header = (props: IHeaderProps) => {
   /* jhipster-needle-add-element-to-menu - JHipster will add new menu items here */
 
   return (
-    <div id="app-header">
+    <div id="app-header" style={{ backgroundColor: '#9b0e0d' }}>
       <LoadingBar className="loading-bar" />
-      <Navbar data-cy="navbar" dark expand="md" fixed="top" style={{ backgroundColor: '#2b4049' }}>
-        <NavbarToggler aria-label="Menu" onClick={toggleMenu} style={{ backgroundColor: '#2b4049' }} />
+      <Navbar data-cy="navbar" dark expand="md" fixed="top" style={{ backgroundColor: '#9b0e0d', borderStyle: 'hidden' }}>
+        <NavbarToggler aria-label="Menu" onClick={toggleMenu} style={{ backgroundColor: '#9b0e0d' }} />
         <Brand />
-        <Collapse isOpen={menuOpen} navbar>
+        <Collapse isOpen={menuOpen} navbar style={{ backgroundColor: '#9b0e0d' }}>
           <Nav id="header-tabs" className="ms-auto" navbar>
             <Home />
             {props.isAuthenticated && <EntitiesMenu />}
