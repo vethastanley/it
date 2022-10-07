@@ -85,7 +85,11 @@ export const Request = () => {
     <div>
       <h2 id="request-heading" data-cy="RequestHeading">
         Requests
-        <div className="d-flex justify-content-end"></div>
+        <div className="d-flex justify-content-end">
+          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
+            <FontAwesomeIcon icon="sync" spin={loading} /> Refresh list
+          </Button>
+        </div>
       </h2>
       <div className="table-responsive">
         {requestList && requestList.length > 0 ? (
